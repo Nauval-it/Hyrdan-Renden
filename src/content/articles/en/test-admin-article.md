@@ -1,6 +1,6 @@
 ---
 title: Test Article from Admin
-date: '2026-09-04T21:25:44.640Z'
+date: '2026-09-04T21:25:47.354Z'
 category: Company News
 coverImage: /images/articles/placeholder-termites.jpg
 excerpt: A test article created from the custom admin.
