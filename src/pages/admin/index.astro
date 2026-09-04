@@ -1,0 +1,39 @@
+---
+const token = Astro.session?.get('github_token');
+
+if (!token) {
+  return Astro.redirect('/api/auth/login');
+}
+---
+
+<html lang="en">
+  <head><title>Admin</title></head>
+  <body style="font-family: sans-serif; padding: 40px;">
+    <h1>You're logged in</h1>
+    <button id="testSave">Test Save Article</button>
+    <p id="result"></p>
+
+    <script>
+      document.getElementById('testSave')?.addEventListener('click', async () => {
+        const res = await fetch('/api/admin/save-article', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            lang: 'en',
+            slug: 'test-admin-article',
+            title: 'Test Article from Admin',
+            date: new Date().toISOString(),
+            category: 'Company News',
+            coverImage: '/images/articles/placeholder-termites.jpg',
+            excerpt: 'A test article created from the custom admin.',
+            tags: ['Test'],
+            author: { name: 'Test Author', bio: 'Test bio', avatar: '/images/authors/placeholder.jpg' },
+            blocks: [{ type: 'paragraph', text: 'This proves the save-article route works.' }],
+          }),
+        });
+        const data = await res.json();
+        document.getElementById('result')!.textContent = res.ok ? 'Saved!' : 'Error: ' + JSON.stringify(data);
+      });
+    </script>
+  </body>
+</html>

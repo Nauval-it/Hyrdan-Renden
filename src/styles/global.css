@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Adobe Color Palette for HYRDAN RENDEN */
+  --color-brand-green: #5EA500;
+  --color-brand-dark: #1C3200;
+  --color-brand-orange: #FF7A00;
+  --color-brand-tint: #F8FBF4;
+  --color-brand-white: #FFFFFF;
+
+  /* Brand semantic mappings */
+  --color-brand: #5EA500;
+  --color-brand-dark: #1C3200;
+
+  /* Sora & Inter typography from original design */
+  --font-heading: "Sora", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes heroFloatDelayed {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.08);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.04);
+  }
+}
+
+.animate-hero-float {
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+.animate-hero-float-delayed {
+  animation: heroFloatDelayed 7s ease-in-out infinite 0.8s;
+}
+
+.animate-orb {
+  animation: orbFloat 14s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}

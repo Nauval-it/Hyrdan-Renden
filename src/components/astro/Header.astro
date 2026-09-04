@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import logoLight from '../../assets/images/logo/logo_1024x255.png';
+import logoDark from '../../assets/images/logo/White_Logo_1024x255.png';
+---
+
+<header class="flex items-center justify-between px-6 py-4 bg-white dark:bg-gray-900">
+  <a href="/" class="flex items-center">
+    <Image
+      src={logoLight}
+      alt="Hyrdan Pest logo"
+      width={160}
+      height={40}
+      class="block dark:hidden"
+    />
+    <Image
+      src={logoDark}
+      alt="Hyrdan Pest logo"
+      width={160}
+      height={40}
+      class="hidden dark:block"
+    />
+  </a>
+
+  <nav class="hidden md:flex gap-6">
+    <a href="/" class="hover:text-brand">Home</a>
+    <a href="/about" class="hover:text-brand">About Us</a>
+    <a href="/services" class="hover:text-brand">Services</a>
+    <a href="/gallery" class="hover:text-brand">Gallery</a>
+    <a href="/articles" class="hover:text-brand">Articles</a>
+    <a href="/contact" class="hover:text-brand">Contact</a>
+  </nav>
+
+  <div class="flex items-center gap-4">
+    <!-- placeholders — real components come later -->
+    <div class="w-8 h-8 rounded-full bg-gray-200">🌐</div>
+    <div class="w-8 h-8 rounded-full bg-gray-200">🌓</div>
+  </div>
+</header>

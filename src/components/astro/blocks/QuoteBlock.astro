@@ -1,0 +1,11 @@
+---
+interface Props {
+  text: string;
+  author?: string;
+}
+const { text, author } = Astro.props;
+---
+{author && (
+  <cite class="block mt-3 text-sm not-italic text-gray-500 dark:text-gray-400">- {author}</cite>
+)}
+</blockquote>

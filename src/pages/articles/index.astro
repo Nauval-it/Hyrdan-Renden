@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/astro/Header.astro';
+import Footer from '../../components/astro/Footer.astro';
+import ArticleSidebar from '../../components/astro/ArticleSidebar.astro';
+import { getCollection } from 'astro:content';
+
+const activeCategory = Astro.url.searchParams.get('category') ?? undefined;
+
+const articles = await getCollection('articles', ({ data }) =>
+  data.lang === 'en' && (!activeCategory || data.category === activeCategory)
+);
+---
+
+<head>
+  <title>Articles | Hyrdan Pest</title>
+  <meta name="description" content="Read our latest articles on pest control, fumigation tips, and company news." />
+  <meta property="og:title" content="Articles | Hyrdan Renden" />
+  <meta property="og:description" content="Read our latest articles on pest control, fumigation tips, and company news." />
+  <meta property="og:type" content="website" />
+</head>
+
+<BaseLayout>
+  <Header />
+
+  <main class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
+    <div>
+      <h1 class="font-heading text-4xl font-bold text-gray-900 dark:text-white mb-10">
+        Articles
+      </h1>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        {articles.map((article) => (
+          <a href={`/articles/${article.id}`} class="block bg-gray-50 dark:bg-gray-800/50 rounded-xl overflow-hidden hover:shadow-md transition">
+            <img src={article.data.coverImage} alt={article.data.title} class="w-full h-48 object-cover" />
+            <div class="p-6">
+              <span class="text-xs text-brand font-semibold uppercase">{article.data.category}</span>
+              <h2 class="font-heading text-xl font-bold text-gray-900 dark:text-white mt-1 mb-2">
+                {article.data.title}
+              </h2>
+              <p class="text-sm text-gray-600 dark:text-gray-300">{article.data.excerpt}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <ArticleSidebar activeCategory={activeCategory} />
+  </main>
+
+  <Footer />
+</BaseLayout>

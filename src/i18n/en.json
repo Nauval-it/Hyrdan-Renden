@@ -1,0 +1,15 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "articles": "Articles",
+    "contact": "Contact"
+  },
+  "cta": {
+    "getQuote": "Get a Free Quote",
+    "contactUs": "Contact Us",
+    "readMore": "Read More"
+  }
+}

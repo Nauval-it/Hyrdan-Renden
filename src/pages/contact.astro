@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/astro/Header.astro';
+import Footer from '../components/astro/Footer.astro';
+import ContactForm from '../components/svelte/ContactForm.svelte';
+---
+
+<head>
+  <title>Contact Us | Hyrdan Pest</title>
+  <meta name="description" content="Get in touch with HYRDAN PEST. for pest control services and inquiries." />
+</head>
+
+<BaseLayout>
+  <Header />
+  <main class="max-w-2xl mx-auto px-6 py-16">
+    <h1 class="font-heading text-4xl font-bold text-center text-gray-900 dark:text-white mb-4">
+      Get in Touch
+    </h1>
+    <p class="text-center text-gray-600 dark:text-gray-300 mb-12">
+      Have a pest problem or need a quote? Send us a message and we'll get back to you.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 text-center">
+      <div>
+        <h3 class="font-heading font-semibold text-gray-900 dark:text-white mb-1">Office</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Office Address Placeholder</p>
+      </div>
+      <div>
+        <h3 class="font-heading font-semibold text-gray-900 dark:text-white mb-1">Phone / Email</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">+62 812-XXXX-XXXX</p>
+        <p class="text-sm text-gray-600 dark:text-gray-300">admin@hyrdanpest.com</p>
+      </div>
+    </div>
+
+    <ContactForm client:load />
+  </main>
+
+  <Footer />
+</BaseLayout>

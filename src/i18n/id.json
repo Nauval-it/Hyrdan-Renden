@@ -1,0 +1,15 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang Kami",
+    "services": "Layanan",
+    "portfolio": "Portofolio",
+    "articles": "Artikel",
+    "contact": "Kontak"
+  },
+  "cta": {
+    "getQuote": "Dapatkan Penawaran Gratis",
+    "contactUs": "Hubungi Kami",
+    "readMore": "Baca Selengkapnya"
+  }
+}

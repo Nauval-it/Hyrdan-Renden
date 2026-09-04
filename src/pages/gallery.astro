@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/astro/Header.astro';
+import Footer from '../components/astro/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const clients = await getCollection('clients');
+---
+<head>
+  <title>Gallery | Hyrdan Pest</title>
+  <meta name="description" content="A look at the businesses and homes we've helped protect." />  
+</head>
+
+<BaseLayout>
+  <Header />
+  <main class="max-w-6xl mx-auto px-6 py-16">
+    <h1 class="font-heading text-4xl font-bold text-center text-gray-900 dark:text-white mb-4">
+      Our Work
+    </h1>
+    <p class="text-center text-gray-600 dark:text-gray-300 mb-16 max-w-2xl mx-auto">
+      A look at the businesses and homes we've helped protect.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {clients.map((client) => (
+        <div class="group relative rounded-xl overflow-hidden aspect-square bg-gray-200 dark:bg-gray-700">
+          <img
+            src={client.data.projectImage}
+            alt={client.data.name}
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-4">
+            <h3 class="text-white font-heading font-semibold">{client.data.name}</h3>
+            {client.data.testimonial && (
+              <p class="text-gray-200 text-xs mt-1 italic">"{client.data.testimonial}"</p>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

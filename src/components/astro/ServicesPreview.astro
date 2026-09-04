@@ -1,0 +1,126 @@
+---
+interface ServiceItem {
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  features: string[];
+  href: string;
+}
+
+const services: ServiceItem[] = [
+  {
+    title: 'Termite Control',
+    category: 'Structural Protection',
+    description: 'Comprehensive subterranean termite defense using advanced liquid soil barriers.',
+    image: '/src/assets/images/thumbnail/termite.png',
+    features: [
+      'Pre & post-construction barrier',
+      'Advanced non-repellent termiticide',
+      'Multi-year warranty',
+    ],
+    href: '/services#termite',
+  },
+  {
+    title: 'Pest Control',
+    category: 'Residential & Commercial',
+    description: 'Systematic eradication of rodents, cockroaches, ants, and disease-carrying vectors with targeted baiting and thermal cold misting.',
+    image: '/src/assets/images/thumbnail/pest-control.jpg',
+    features: [
+      'Targeted baiting & exclusion sealing',
+      'Eco-safe interior misting solutions',
+      'Rodent & vector disease control',
+    ],
+    href: '/services#pest-control',
+  },
+  {
+    title: 'Fumigation Services',
+    category: 'Warehouse & Archive',
+    description: 'Fumigation for shipping containers, warehouse silos, bulk agricultural commodities, and export quarantine compliance.',
+    image: '/src/assets/images/thumbnail/fumigation.jpeg',
+    features: [
+      'Export quarantine & port standards',
+      'Bulk commodity & container fumigation',
+      'Official clearance certification',
+    ],
+    href: '/services#fumigation',
+  },
+];
+---
+
+<section class="bg-white text-[#1C3200] py-20 lg:py-28 px-6 sm:px-8 border-b border-[#1C3200]/10">
+  <div class="max-w-6xl mx-auto">
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
+      <span class="text-xs uppercase tracking-[0.2em] font-semibold text-[#5EA500] mb-3 block">
+        Our Core Services
+      </span>
+      <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1C3200] mb-6">
+        Targeted Solutions for Every Infestation.
+      </h2>
+      <p class="text-base sm:text-lg text-[#1C3200]/75 leading-relaxed font-normal">
+        From residential termite barriers to high-volume commercial container fumigation, our certified treatments ensure complete eradication and lasting protection.
+      </p>
+    </div>
+
+    <!-- 3 Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <article class="bg-[#F8FBF4] rounded-2xl border border-[#1C3200]/10 overflow-hidden hover:border-[#5EA500]/50 hover:shadow-md transition-all duration-300 flex flex-col group">
+          
+          <!-- Real Photography Card Header -->
+          <div class="relative h-52 sm:h-56 w-full overflow-hidden bg-[#1C3200]/10">
+            <img
+              src={service.image}
+              alt={service.title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1C3200]/70 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-[#1C3200] text-[11px] font-semibold uppercase tracking-wider px-3 py-1 rounded-md border border-[#1C3200]/10">
+              {service.category}
+            </span>
+          </div>
+
+          <!-- Card Content Body -->
+          <div class="p-6 sm:p-7 flex flex-col flex-1 justify-between">
+            <div>
+              <h3 class="font-heading font-bold text-xl text-[#1C3200] mb-3 group-hover:text-[#5EA500] transition-colors">
+                {service.title}
+              </h3>
+              <p class="text-sm text-[#1C3200]/70 leading-relaxed mb-6 font-normal">
+                {service.description}
+              </p>
+
+              <!-- Feature Checkmarks -->
+              <ul class="space-y-2.5 mb-8">
+                {service.features.map((feature) => (
+                  <li class="flex items-center gap-2.5 text-xs sm:text-sm text-[#1C3200]/80">
+                    <span class="w-4 h-4 rounded-full bg-[#5EA500]/15 text-[#5EA500] flex items-center justify-center flex-shrink-0 text-[10px] font-bold">
+                      ✓
+                    </span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Card Footer Link -->
+            <div class="pt-5 border-t border-[#1C3200]/10">
+              <a
+                href={service.href}
+                class="inline-flex items-center justify-between w-full font-heading font-semibold text-sm text-[#1C3200] group-hover:text-[#5EA500] transition-colors"
+              >
+                <span>Learn more</span>
+                <span class="transition-transform group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+
+          </div>
+
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

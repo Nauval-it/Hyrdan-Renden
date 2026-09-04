@@ -1,0 +1,14 @@
+---
+interface Props {
+  items: string[];
+}
+const { items } = Astro.props;
+---
+<ul class="space-y-2 my-6">
+  {items.map((item) => (
+    <li class="flex items-start gap-3 font-body text-lg text-gray-800 dark:text-gray-300">
+      <span class="text-brand mt-2 text-xs">-</span>
+      <span>{item}</span>
+    </li>
+  ))}
+</ul>

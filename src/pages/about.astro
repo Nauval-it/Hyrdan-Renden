@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/astro/Header.astro';
+import Footer from '../components/astro/Footer.astro';
+
+const values = [
+  { title: 'Safety First', description: 'Every treatment prioritizes the health of your family, pets, and staff.' },
+  { title: 'Proven Expertise', description: 'Licensed technicians using industry-tested methods.' },
+  { title: 'Reliability', description: "We show up when we say we will, and we finish the job right." },
+];
+
+const team = [
+  { name: 'Placeholder Name', role: 'Founder & Lead Technician' },
+  { name: 'Placeholder Name', role: 'Field Operations' },
+];
+---
+
+<head>
+  <title>About Us | Hyrdan Pest</title>
+  <meta name="description" content="Learn more about HYRDAN PEST and our commitment to safe, effective pest control solutions." />  
+</head>
+
+<BaseLayout>
+  <Header />
+  <main class="max-w-4xl mx-auto px-6 py-16">
+    <section class="mb-16 text-center">
+      <h1 class="font-heading text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        About Hyrdan Pest
+      </h1>
+      <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+        Placeholder company history — founded to bring safe, professional pest control
+        to homes and businesses, Hyrdan Pest has grown through a commitment to
+        trustworthy service and real results.
+      </p>
+    </section>
+
+    <section class="mb-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h2 class="font-heading text-2xl font-bold text-gray-900 dark:text-white mb-2">Our Mission</h2>
+        <p class="text-gray-600 dark:text-gray-300">Placeholder mission statement.</p>
+      </div>
+      <div>
+        <h2 class="font-heading text-2xl font-bold text-gray-900 dark:text-white mb-2">Our Vision</h2>
+        <p class="text-gray-600 dark:text-gray-300">Placeholder vision statement.</p>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="font-heading text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
+        Our Values
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {values.map((value) => (
+          <div class="text-center">
+            <h3 class="font-heading font-semibold text-gray-900 dark:text-white mb-2">{value.title}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">{value.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <h2 class="font-heading text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
+        Meet the Team
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {team.map((member) => (
+          <div class="text-center">
+            <div class="w-20 h-20 rounded-full bg-gray-200 dark:bg-gray-700 mx-auto mb-3"></div>
+            <h3 class="font-heading font-semibold text-gray-900 dark:text-white">{member.name}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">{member.role}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

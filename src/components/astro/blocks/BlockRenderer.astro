@@ -1,0 +1,19 @@
+---
+import HeadingBlock from './HeadingBlock.astro';
+import ParagraphBlock from './ParagraphBlock.astro';
+import ImageBlock from './ImageBlock.astro';
+import QuoteBlock from './QuoteBlock.astro';
+import TwoColumnBlock from './TwoColumnBlock.astro';
+import GalleryBlock from './GalleryBlock.astro';
+import ListBlock from './ListBlock.astro';
+
+const { block } = Astro.props;
+---
+
+{block.type === 'heading' && <HeadingBlock text={block.text} />}
+{block.type === 'paragraph' && <ParagraphBlock text={block.text} />}
+{block.type === 'image' && <ImageBlock src={block.src} caption={block.caption} />}
+{block.type === 'quote' && <QuoteBlock text={block.text} author={block.author} />}
+{block.type === 'twoColumn' && <TwoColumnBlock left={block.left} right={block.right} />}
+{block.type === 'gallery' && <GalleryBlock images={block.images} />}
+{block.type === 'list' && <ListBlock items={block.items} />}

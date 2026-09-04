@@ -1,0 +1,11 @@
+---
+interface Props {
+  left: string;
+  right: string;
+}
+const { left, right } = Astro.props;
+---
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+  <p class="font-body text-lg text-gray-800 dark:text-gray-300 leading-relaxed">{left}</p>
+  <p class="font-body text-lg text-gray-800 dark:text-gray-300 leading-relaxed">{right}</p>
+</div>

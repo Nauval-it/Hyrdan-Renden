@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  activeCategory?: string;
+  currentId?: string;
+}
+const { activeCategory, currentId } = Astro.props;
+
+const categories = ['Pest Guides', 'Fumigation Tips', 'Company News'];
+
+const allArticles = await getCollection('articles', ({ data }) => data.lang === 'en');
+const recentStories = allArticles
+  .filter((a) => a.id !== currentId)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<aside class="space-y-8">
+  <div>
+    <h3 class="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">Search</h3>
+    <input
+      type="text"
+      placeholder="Search articles..."
+      class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm"
+    />
+  </div>
+
+  <div>
+    <h3 class="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">Categories</h3>
+    <div class="flex flex-wrap gap-2">
+      {categories.map((cat) => {
+        const isActive = activeCategory === cat;
+        const pillClass = isActive
+          ? "text-xs px-3 py-1.5 rounded-full border border-brand text-brand"
+          : "text-xs px-3 py-1.5 rounded-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300";
+        return (
+          <a href={`/articles?category=${encodeURIComponent(cat)}`} class={pillClass}>
+            {cat}
+          </a>
+        );
+      })}
+    </div>
+  </div>
+
+  <div>
+    <h3 class="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">Recent Stories</h3>
+    <div class="space-y-4">
+      {recentStories.map((story) => (
+        <a href={`/articles/${story.id}`} class="flex gap-3 group">
+          <img src={story.data.coverImage} alt={story.data.title} class="w-16 h-16 rounded-lg object-cover flex-shrink-0" />
+          <div>
+            <span class="text-xs text-brand font-semibold uppercase">{story.data.category}</span>
+            <h4 class="text-sm font-heading font-semibold text-gray-900 dark:text-white group-hover:text-brand leading-snug">
+              {story.data.title}
+            </h4>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</aside>

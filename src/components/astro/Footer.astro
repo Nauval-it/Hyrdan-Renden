@@ -1,0 +1,160 @@
+---
+// src/components/astro/Footer.astro
+import { Image } from 'astro:assets';
+import logoWhite from '../../assets/images/Logo/White_Logo_1024x255.png';
+import aspphamiLogo from '../../assets/images/Logo/Aspphami_1024x824.png';
+---
+
+<footer class="bg-[#1C3200] text-white relative overflow-hidden border-t border-white/10">
+  <!-- Subtle Micro Grid Pattern for Depth -->
+  <div 
+    class="absolute inset-0 opacity-[0.03] pointer-events-none"
+    style="background-image: radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0); background-size: 32px 32px;"
+  ></div>
+
+  <div class="relative max-w-6xl mx-auto px-6 sm:px-8 pt-16 lg:pt-20 pb-12">
+    
+    <!-- Main Footer Columns -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/10">
+      
+      <!-- Brand & Accreditation Column -->
+      <div class="lg:col-span-5 flex flex-col justify-between">
+        <div>
+          <a href="/" class="inline-block mb-5">
+            <Image
+              src={logoWhite}
+              alt="Hyrdan Pest logo"
+              width={160}
+              height={40}
+              class="h-9 w-auto object-contain"
+            />
+          </a>
+          <p class="text-sm text-white/75 leading-relaxed max-w-sm mb-6 font-normal">
+            Licensed integrated pest management and certified commercial fumigation across Indonesia. Delivering eco-safe standards, rapid dispatch, and total structural defense.
+          </p>
+
+          <!-- ASPPHAMI Accreditation Badge -->
+          <div class="inline-flex items-center gap-3.5 px-4 py-2.5 rounded-xl bg-white/[0.05] border border-white/10">
+            <Image
+              src={aspphamiLogo}
+              alt="ASPPHAMI Logo"
+              width={36}
+              height={30}
+              class="object-contain h-7 w-auto"
+            />
+            <div>
+              <p class="text-[11px] font-semibold text-white uppercase tracking-wider">ASPPHAMI Member</p>
+              <p class="text-[10px] text-white/60">Official Indonesian Pest Control Association</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services Links -->
+      <div class="lg:col-span-3">
+        <h3 class="font-heading font-semibold text-sm uppercase tracking-wider text-white mb-5">
+          Services
+        </h3>
+        <ul class="space-y-3 text-sm">
+          <li>
+            <a href="/services#termite" class="text-white/70 hover:text-[#5EA500] transition-colors">
+              Termite Control & Barrier
+            </a>
+          </li>
+          <li>
+            <a href="/services#pest-control" class="text-white/70 hover:text-[#5EA500] transition-colors">
+              Pest & Rodent Eradication
+            </a>
+          </li>
+          <li>
+            <a href="/services#fumigation" class="text-white/70 hover:text-[#5EA500] transition-colors">
+              Commercial Fumigation
+            </a>
+          </li>
+          <li>
+            <a href="/services#bed-bug" class="text-white/70 hover:text-[#5EA500] transition-colors">
+              Bed Bug Elimination
+            </a>
+          </li>
+          <li>
+            <a href="/services" class="text-white/70 hover:text-[#5EA500] transition-colors">
+              All Services Overview
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="lg:col-span-2">
+        <h3 class="font-heading font-semibold text-sm uppercase tracking-wider text-white mb-5">
+          Company
+        </h3>
+        <ul class="space-y-3 text-sm">
+          <li>
+            <a href="/about" class="text-white/70 hover:text-[#5EA500] transition-colors">
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="/services" class="text-white/70 hover:text-[#5EA500] transition-colors">
+              Our Services
+            </a>
+          </li>
+          <li>
+            <a href="/gallery" class="text-white/70 hover:text-[#5EA500] transition-colors">
+              Project Gallery
+            </a>
+          </li>
+          <li>
+            <a href="/articles" class="text-white/70 hover:text-[#5EA500] transition-colors">
+              Field Articles
+            </a>
+          </li>
+          <li>
+            <a href="/contact" class="text-white/70 hover:text-[#5EA500] transition-colors">
+              Contact & Quote
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact & Operations -->
+      <div class="lg:col-span-2">
+        <h3 class="font-heading font-semibold text-sm uppercase tracking-wider text-white mb-5">
+          Contact
+        </h3>
+        <div class="space-y-3.5 text-sm text-white/70">
+          <div>
+            <p class="text-xs uppercase tracking-wider text-white/50 mb-0.5">Contact</p>
+            <p class="text-white font-medium">+62 812-XXXX-XXXX</p>
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-wider text-white/50 mb-0.5">Email</p>
+            <a href="mailto:admin@hyrdanpest.com" class="text-white/80 hover:text-[#5EA500] transition-colors">
+              admin@hyrdanpest.com
+            </a>
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-wider text-white/50 mb-0.5">Coverage</p>
+            <p class="text-white/70 text-xs leading-relaxed">
+              Jabodetabek & Nationwide Operations
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright & Quality Assurance -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
+      <p>© 2026 Hyrdan Pest (CV Hyrdan Renden). All rights reserved.</p>
+      <div class="flex items-center gap-6">
+        <span class="inline-flex items-center gap-1.5 text-white/70">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#5EA500]"></span>
+          <span>Eco-Safe Chemical Standards</span>
+        </span>
+      </div>
+    </div>
+
+  </div>
+</footer>

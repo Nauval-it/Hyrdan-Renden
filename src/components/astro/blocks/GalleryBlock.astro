@@ -1,0 +1,11 @@
+---
+interface Props {
+  images: string[];
+}
+const { images } = Astro.props;
+---
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 my-8">
+  {images.map((src) => (
+    <img src={src} alt="" class="w-full aspect-square object-cover rounded-lg" />
+  ))}
+</div>
